@@ -1,0 +1,38 @@
+{
+  "extends": ["airbnb-base/legacy", "prettier"],
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2019,
+        "ecmaFeatures": {
+          "modules": true
+        }
+    },
+    "plugins": [],
+    "rules": {
+      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+      "no-console": 0,
+      "no-underscore-dangle": 0,
+      "func-names": 0,
+      "no-process-exit": 0,
+      "consistent-return":0,
+      "no-unused-vars": ["warn", { "args": "none", "ignoreRestSiblings": false }],
+      "no-param-reassign":["error", { "props": true, "ignorePropertyModificationsFor": ["el"] }]
+    },
+    "ignorePatterns":["dist/*"],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": [
+            "node_modules",
+            "src"
+          ]
+        }
+      }
+    }
+}
