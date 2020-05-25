@@ -4,6 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D model viewer</title>
+    <style>
+      #ModelViewer {
+        position: relative;
+        z-index: 2;
+        background-color: #000000;
+        color: #ffffff;
+      }
+      #ModelViewer_Activate {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      #ModelViewer_StartButton {
+        height: 20px;
+        background: transparent;
+        color: #ffffff;
+        outline: 1px solid #ffffff;
+        border: 0px;
+        cursor: pointer;
+      }
+      #ModelViewer_StartButton:hover {
+        background: #ffffff75;
+      }
+    </style>
   </head>
   <body>
     <h1>3D model viewer test</h1>
@@ -13,6 +40,6 @@
         quod tempore perspiciatis magni iure, amet repudiandae eligendi?
       </p>
     </div>
-    <div id="ModelViewer"></div>
+    <div id="ModelViewer" src="../models/test1/model.glb" ratio="16:9" dev></div>
   </body>
 </html>

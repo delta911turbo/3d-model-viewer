@@ -1,6 +1,5 @@
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const nodeExternals = require("webpack-node-externals");
 
 const DevMode = process.env.Node_ENV === "development";
 
@@ -12,11 +11,6 @@ module.exports = {
     extensions: ["*", ".js"],
     modules: [resolve("node_modules"), resolve("src")],
   },
-  devServer: {
-    port: 3000,
-    open: true,
-    contentBase: resolve(__dirname, "../public/"),
-  },
   module: {
     rules: [
       {
@@ -25,6 +19,7 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ["@babel/preset-env"],
+          plugins: ["@babel/plugin-proposal-optional-chaining"],
         },
       },
       {
@@ -39,7 +34,7 @@ module.exports = {
     ],
   },
   output: {
-    path: resolve(__dirname, "../dist"),
+    path: resolve(__dirname, "../dist/build"),
     filename: DevMode ? "bundle.js" : "bundle.[contentHash].js",
   },
   plugins: [
