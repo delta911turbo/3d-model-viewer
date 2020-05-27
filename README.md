@@ -4,20 +4,25 @@
 
 ### TODO
 
-- [ ] create default attributes 
-  - [ ] add error handling
-- [ ] add performance to dev
-- [ ] Button for start activate viewer
+- [x] create default attributes 
+  - [x] add error handling
+- [x] add performance to dev
+- [x] Button for start activate viewer
 - [ ] loading bar
 - [x] Aspect ratio 
   - [x] include in html component as option
   - [x] add default and posable options
   - [x] fixed height based on width in current aspect ratio
   - [ ] resize window callback
-- [ ] **Camera**
-  - [ ] orbit 360
+- [x] **Camera**
+  - [x] orbit 360
   - [ ] auto orbit witch button
 - [ ] **background**
   - [ ] add model 
   - [ ] create shading
 - [ ] add error handling 
+
+### Road Map
+
+- [ ] add multiple loaders
+  - [ ] Include attribute witch chosen loader

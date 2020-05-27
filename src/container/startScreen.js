@@ -1,7 +1,7 @@
 const startScreen = (width, height, btnEvent) => {
   const wrapper = document.createElement("div");
   wrapper.setAttribute("id", "ModelViewer_Activate");
-  wrapper.setAttribute("style", `width:${width}px;height:${height}px`);
+  wrapper.setAttribute("style", `width:${width}px;height:${height}px;`);
 
   const btn = document.createElement("button");
   btn.textContent = "Click to load";
