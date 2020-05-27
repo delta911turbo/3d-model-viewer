@@ -1,6 +1,4 @@
-import { initModelViewer } from "..";
-
-const CreateActivateWrapper = (width, height) => {
+const startScreen = (width, height, btnEvent) => {
   const wrapper = document.createElement("div");
   wrapper.setAttribute("id", "ModelViewer_Activate");
   wrapper.setAttribute("style", `width:${width}px;height:${height}px`);
@@ -9,10 +7,7 @@ const CreateActivateWrapper = (width, height) => {
   btn.textContent = "Click to load";
 
   btn.setAttribute("id", "ModelViewer_StartButton");
-  btn.addEventListener("click", function () {
-    wrapper.remove();
-    initModelViewer(true);
-  });
+  btn.addEventListener("click", () => btnEvent(wrapper));
 
   const descriptions = document.createElement("p");
   descriptions.textContent = "Click to start loading model";
@@ -23,8 +18,4 @@ const CreateActivateWrapper = (width, height) => {
   return wrapper;
 };
 
-const activateButton = (width, height) => {
-  return CreateActivateWrapper(width, height);
-};
-
-export default activateButton;
+export default startScreen;

@@ -1,5 +1,5 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import loadingStatus from "./loading/loadingStatus";
+import loadingStatus from "../viewer3D/loading/loadingStatus";
 
 const loader = new GLTFLoader();
 
