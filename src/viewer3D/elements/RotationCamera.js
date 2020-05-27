@@ -6,9 +6,9 @@ const RotationCamera = (camera, domElement, autoRotate = true) => {
     rotationCameraControl.autoRotate = true;
     rotationCameraControl.autoRotateSpeed = 1;
   }
-  // rotationCameraControl.minDistance = 45;
-  // rotationCameraControl.maxDistance = 150;
-  // rotationCameraControl.maxPolarAngle = Math.PI * 0.55;
+  rotationCameraControl.minDistance = 45;
+  rotationCameraControl.maxDistance = 150;
+  rotationCameraControl.maxPolarAngle = Math.PI * 0.55;
 
   return rotationCameraControl;
 };

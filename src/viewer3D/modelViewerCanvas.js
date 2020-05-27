@@ -1,17 +1,17 @@
 import * as THREE from "three";
 
-import modelLoader from "../loader/modelLoader";
-import onWindowResize from "./onWindowResize";
+import onWindowResize from "./events/onWindowResize";
 import ViewerCamera from "./elements/camera";
 import performanceOutput from "./dev/performanceOutput";
 import RotationCamera from "./elements/RotationCamera";
 import ViewerLight from "./elements/CreateLight";
 import CreateRenderer from "./elements/CreateRenderer";
 import CreateBackground from "./elements/CreateBackground";
+import createProductModel from "./elements/createProductModel";
 
 const bgModel = {
   floor: "../models/background/floor/floor.gltf",
-  pillars: "../models/background/pillars/pilar.gltf",
+  pillars: "../models/background/pillar/pillar.gltf",
 };
 
 async function modelViewerCanvas(container, src, { width, height, ratio }, dev) {
@@ -45,9 +45,9 @@ async function modelViewerCanvas(container, src, { width, height, ratio }, dev) 
   const background = await CreateBackground(bgModel);
   background.map((bg) => scene.add(bg));
 
-  const model = await modelLoader(src);
-  model.scenes[0].scale.set(0.15, 0.15, 0.15);
-  scene.add(model.scene);
+  const model = await createProductModel(src);
+
+  scene.add(model);
 
   function render() {
     renderer.render(scene, camera);
