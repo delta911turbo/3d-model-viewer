@@ -19,7 +19,16 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ["@babel/preset-env"],
-          plugins: ["@babel/plugin-proposal-optional-chaining"],
+          plugins: [
+            "@babel/plugin-proposal-optional-chaining",
+            "@babel/plugin-transform-async-to-generator",
+            [
+              "@babel/plugin-transform-runtime",
+              {
+                regenerator: true,
+              },
+            ],
+          ],
         },
       },
       {
