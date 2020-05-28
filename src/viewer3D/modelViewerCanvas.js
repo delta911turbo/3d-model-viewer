@@ -8,6 +8,7 @@ import ViewerLight from "./elements/CreateLight";
 import CreateRenderer from "./elements/CreateRenderer";
 import CreateBackground from "./elements/CreateBackground";
 import loadProductModel from "./elements/loadProductModel";
+import ProgressBar from "./loading/progressBar";
 
 const bgModel = {
   floor: "../models/background/floor/floor.gltf",
@@ -16,6 +17,12 @@ const bgModel = {
 
 async function modelViewerCanvas(container, src, { width, height, ratio }, dev) {
   let stats;
+
+  let xd = "start";
+  console.log(xd);
+
+  const progressBar = new ProgressBar();
+  container.appendChild(progressBar.create());
 
   // fps for dev
   if (dev) {
@@ -78,6 +85,7 @@ async function modelViewerCanvas(container, src, { width, height, ratio }, dev) 
     false
   );
 
+  console.log((xd = "stop"));
   animate();
 }
 

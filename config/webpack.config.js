@@ -34,7 +34,7 @@ module.exports = {
     ],
   },
   output: {
-    path: resolve(__dirname, "../dist/build"),
+    path: DevMode ? resolve(__dirname, "../dist/build") : resolve(__dirname, "../build"),
     filename: DevMode ? "bundle.js" : "bundle.[contentHash].js",
   },
   plugins: [

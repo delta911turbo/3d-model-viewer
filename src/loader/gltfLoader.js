@@ -1,11 +1,11 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import loadingStatus from "../viewer3D/loading/loadingStatus";
+import loadingManager from "../viewer3D/loading/loadingManager";
 
-const loader = new GLTFLoader();
+const loader = new GLTFLoader(loadingManager);
 
-const modelLoader = async (url, scene) => {
+const modelLoader = async (url) => {
   return new Promise((resolve, reject) => {
-    loader.load(url, (gltf) => resolve(gltf), loadingStatus, reject, null);
+    loader.load(url, (gltf) => resolve(gltf), null, reject, null);
   });
 };
 
