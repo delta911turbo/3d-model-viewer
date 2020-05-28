@@ -3,9 +3,9 @@ import loadingStatus from "../viewer3D/loading/loadingStatus";
 
 const loader = new GLTFLoader();
 
-const modelLoader = async (url) => {
+const modelLoader = async (url, scene) => {
   return new Promise((resolve, reject) => {
-    loader.load(url, (gltf) => resolve(gltf), loadingStatus, reject);
+    loader.load(url, (gltf) => resolve(gltf), loadingStatus, reject, null);
   });
 };
 

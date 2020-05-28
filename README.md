@@ -17,12 +17,16 @@
 - [x] **Camera**
   - [x] orbit 360
   - [ ] auto orbit witch button
-- [ ] **background**
-  - [ ] add model 
-  - [ ] create shading
+- [x] **background**
+  - [x] add model 
+  - [x] create shading
 - [ ] add error handling 
+
+### bug list 
+- [ ] size of content and size of canvas don't mach up 
+  - [ ] on load element width don't include 
 
 ### Road Map
 
 - [ ] add multiple loaders
-  - [ ] Include attribute witch chosen loader
+  - [ ] Include attribute witch chosen loader scrollbar 

@@ -5,6 +5,7 @@ import modelViewerCanvas from "./viewer3D/modelViewerCanvas";
 
 export const initModelViewer = () => {
   const canvasDOM = document.getElementById("ModelViewer");
+
   // load options from attributes
   const { src, ratio, dev } = loadAttributes(canvasDOM);
   const { width, height } = aspectRatio(ratio, canvasDOM.offsetWidth);
@@ -12,7 +13,7 @@ export const initModelViewer = () => {
   // event for brn resize
   const windowResize = () => {
     const { width: w, height: h } = aspectRatio(ratio, canvasDOM.offsetWidth);
-    canvasDOM.children[0].setAttribute("style", `width:${w}px;height:${h}px;`);
+    canvasDOM.firstChild.setAttribute("style", `width:${w}px;height:${h}px;`);
   };
 
   // add start screen event

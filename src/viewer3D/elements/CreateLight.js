@@ -12,8 +12,8 @@ const createProductSpotLight = (position = [0, 0, 0], power = 0, name = "") => {
 
   sLight.shadow.camera.near = 1;
   sLight.shadow.camera.far = 1500;
-  sLight.shadow.mapSize.width = 256;
-  sLight.shadow.mapSize.height = 256;
+  sLight.shadow.mapSize.width = 2048;
+  sLight.shadow.mapSize.height = 2048;
 
   return sLight;
 };

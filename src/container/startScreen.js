@@ -7,6 +7,7 @@ const startScreen = (width, height, btnEvent) => {
   btn.textContent = "Click to load";
 
   btn.setAttribute("id", "ModelViewer_StartButton");
+  btn.setAttribute("class", "ModelViewer_Button");
   btn.addEventListener("click", () => btnEvent(wrapper));
 
   const descriptions = document.createElement("p");

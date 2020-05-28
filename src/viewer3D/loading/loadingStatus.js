@@ -1,4 +1,4 @@
-import loadingIndicator from "./loadingIndicator";
+import loadingIndicator from "./progressBar";
 import loadingAnimation from "./loadingAnimation";
 
 const loadingStatus = (xhr) => {

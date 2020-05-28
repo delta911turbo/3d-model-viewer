@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import modelLoader from "../../loader/modelLoader";
+import modelLoader from "../../loader/gltfLoader";
 
 const CreateBackground = async ({ floor, pillars }) => {
   const floorModel = await modelLoader(floor);

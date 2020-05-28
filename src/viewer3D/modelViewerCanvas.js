@@ -1,13 +1,13 @@
-import * as THREE from "three";
+import { Scene, Color, CameraHelper } from "three";
 
 import onWindowResize from "./events/onWindowResize";
 import ViewerCamera from "./elements/camera";
 import performanceOutput from "./dev/performanceOutput";
-import RotationCamera from "./elements/RotationCamera";
+import RotationCamera, { controlButton } from "./elements/RotationCamera";
 import ViewerLight from "./elements/CreateLight";
 import CreateRenderer from "./elements/CreateRenderer";
 import CreateBackground from "./elements/CreateBackground";
-import createProductModel from "./elements/createProductModel";
+import loadProductModel from "./elements/loadProductModel";
 
 const bgModel = {
   floor: "../models/background/floor/floor.gltf",
@@ -23,8 +23,8 @@ async function modelViewerCanvas(container, src, { width, height, ratio }, dev) 
     container.appendChild(stats.dom);
   }
 
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x000000);
+  const scene = new Scene();
+  scene.background = new Color(0x000000);
 
   // init renderer and add to DOM
   const renderer = CreateRenderer(width, height);
@@ -32,22 +32,33 @@ async function modelViewerCanvas(container, src, { width, height, ratio }, dev) 
 
   // init camera and attach to orbitViewer
   const camera = ViewerCamera(width, height);
-  const rotationCameraControl = RotationCamera(camera, renderer.domElement, false);
+  const rotationCameraControl = RotationCamera(camera, renderer.domElement, true);
+  const updateAutoRotate = () => {
+    if (rotationCameraControl.autoRotate) {
+      rotationCameraControl.autoRotate = false;
+    } else {
+      rotationCameraControl.autoRotate = true;
+    }
+  };
+
   // add light
   const light = ViewerLight();
   light.map((l) => scene.add(l));
 
   // DEV: camera  helper
-  light.forEach((l) => {
-    if (l.type !== "AmbientLight") scene.add(new THREE.CameraHelper(l.shadow.camera));
-  });
+  if (dev) {
+    light.forEach((l) => {
+      if (l.type !== "AmbientLight") scene.add(new CameraHelper(l.shadow.camera));
+    });
+  }
 
   const background = await CreateBackground(bgModel);
   background.map((bg) => scene.add(bg));
 
-  const model = await createProductModel(src);
+  const model = await loadProductModel(src);
 
   scene.add(model);
+  container.appendChild(controlButton(updateAutoRotate));
 
   function render() {
     renderer.render(scene, camera);
